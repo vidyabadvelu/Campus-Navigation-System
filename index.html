@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Navigation System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>🏫 Campus Navigation System</h1>
+
+        <p>Find departments, labs and facilities easily</p>
+
+    </header>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <button onclick="showSection('home')">
+            Home
+        </button>
+
+        <button onclick="showSection('locations')">
+            Locations
+        </button>
+
+        <button onclick="showSection('map')">
+            Campus Map
+        </button>
+
+        <button onclick="showSection('about')">
+            About
+        </button>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section id="home" class="section">
+
+        <h2>Welcome 👋</h2>
+
+        <p>
+            Welcome to the Campus Navigation System.
+            Search for departments, laboratories and
+            other important places inside the campus.
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search location..."
+                onkeyup="searchLocations()"
+            >
+
+        </div>
+
+
+        <div class="categories">
+
+            <button onclick="filterLocations('all')">
+                All
+            </button>
+
+            <button onclick="filterLocations('department')">
+                Departments
+            </button>
+
+            <button onclick="filterLocations('lab')">
+                Labs
+            </button>
+
+            <button onclick="filterLocations('facility')">
+                Facilities
+            </button>
+
+            <button onclick="filterLocations('food')">
+                Food
+            </button>
+
+        </div>
+
+
+        <div id="locationContainer" class="location-container">
+
+            <!-- CSE -->
+
+            <div class="location-card" data-category="department">
+
+                <h3>💻 Computer Science Department</h3>
+
+                <p>📍 Block A</p>
+
+                <p>🏢 2nd Floor</p>
+
+                <p>🚪 Room A-204</p>
+
+                <button onclick="showRoute('Main Gate → Block A → 2nd Floor → CSE Department')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- ECE -->
+
+            <div class="location-card" data-category="department">
+
+                <h3>📡 ECE Department</h3>
+
+                <p>📍 Block B</p>
+
+                <p>🏢 1st Floor</p>
+
+                <p>🚪 Room B-105</p>
+
+                <button onclick="showRoute('Main Gate → Block B → 1st Floor → ECE Department')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Computer Lab -->
+
+            <div class="location-card" data-category="lab">
+
+                <h3>🖥️ Computer Lab</h3>
+
+                <p>📍 Block A</p>
+
+                <p>🏢 1st Floor</p>
+
+                <p>🚪 Lab A-102</p>
+
+                <button onclick="showRoute('Main Gate → Block A → 1st Floor → Computer Lab')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Library -->
+
+            <div class="location-card" data-category="facility">
+
+                <h3>📚 Central Library</h3>
+
+                <p>📍 Block C</p>
+
+                <p>🏢 Ground Floor</p>
+
+                <p>🕐 8:00 AM - 6:00 PM</p>
+
+                <button onclick="showRoute('Main Gate → Block C → Central Library')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Canteen -->
+
+            <div class="location-card" data-category="food">
+
+                <h3>🍽️ College Canteen</h3>
+
+                <p>📍 Near Block C</p>
+
+                <p>🏢 Ground Floor</p>
+
+                <p>🕐 8:00 AM - 5:00 PM</p>
+
+                <button onclick="showRoute('Main Gate → Block C → College Canteen')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Hostel -->
+
+            <div class="location-card" data-category="facility">
+
+                <h3>🏠 Student Hostel</h3>
+
+                <p>📍 Hostel Block</p>
+
+                <p>🏢 Main Campus</p>
+
+                <p>🔐 Student Area</p>
+
+                <button onclick="showRoute('Main Gate → Hostel Block → Student Hostel')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Sports Ground -->
+
+            <div class="location-card" data-category="facility">
+
+                <h3>🏟️ Sports Ground</h3>
+
+                <p>📍 North Campus</p>
+
+                <p>⚽ Football Ground</p>
+
+                <p>🏃 Running Track</p>
+
+                <button onclick="showRoute('Main Gate → North Campus → Sports Ground')">
+                    Show Route
+                </button>
+
+            </div>
+
+
+            <!-- Medical Room -->
+
+            <div class="location-card" data-category="facility">
+
+                <h3>🏥 Medical Room</h3>
+
+                <p>📍 Administration Block</p>
+
+                <p>🏢 Ground Floor</p>
+
+                <p>🕐 9:00 AM - 4:00 PM</p>
+
+                <button onclick="showRoute('Main Gate → Administration Block → Medical Room')">
+                    Show Route
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOCATIONS -->
+
+    <section id="locations" class="section hidden">
+
+        <h2>📍 Campus Locations</h2>
+
+        <p>
+            Select a location to find its route.
+        </p>
+
+        <div class="quick-list">
+
+            <button onclick="showRoute('Main Gate → Block A → CSE Department')">
+                💻 CSE Department
+            </button>
+
+            <button onclick="showRoute('Main Gate → Block B → ECE Department')">
+                📡 ECE Department
+            </button>
+
+            <button onclick="showRoute('Main Gate → Block C → Library')">
+                📚 Library
+            </button>
+
+            <button onclick="showRoute('Main Gate → Block C → Canteen')">
+                🍽️ Canteen
+            </button>
+
+            <button onclick="showRoute('Main Gate → Hostel Block → Hostel')">
+                🏠 Hostel
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAP -->
+
+    <section id="map" class="section hidden">
+
+        <h2>🗺️ Campus Map</h2>
+
+        <div class="campus-map">
+
+            <div class="map-location gate">
+                🚪 Main Gate
+            </div>
+
+            <div class="map-location block-a">
+                🏢 Block A
+                <small>CSE</small>
+            </div>
+
+            <div class="map-location block-b">
+                🏢 Block B
+                <small>ECE</small>
+            </div>
+
+            <div class="map-location block-c">
+                📚 Block C
+                <small>Library</small>
+            </div>
+
+            <div class="map-location canteen">
+                🍽️ Canteen
+            </div>
+
+            <div class="map-location hostel">
+                🏠 Hostel
+            </div>
+
+            <div class="map-location ground">
+                🏟️ Ground
+            </div>
+
+        </div>
+
+        <p class="map-note">
+            📍 This is a sample campus map.
+        </p>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section hidden">
+
+        <h2>ℹ️ About the Project</h2>
+
+        <div class="about-box">
+
+            <h3>Campus Navigation System</h3>
+
+            <p>
+                The Campus Navigation System is a web-based
+                application designed to help students and
+                visitors find important locations within
+                a college campus.
+            </p>
+
+            <h3>Technologies Used</h3>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h3>Main Features</h3>
+
+            <ul>
+                <li>Location search</li>
+                <li>Category filtering</li>
+                <li>Campus map</li>
+                <li>Route display</li>
+                <li>Responsive design</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- ROUTE POPUP -->
+
+    <div id="routeBox" class="route-box hidden">
+
+        <div class="route-content">
+
+            <span onclick="closeRoute()" class="close">
+                ×
+            </span>
+
+            <h2>🧭 Route</h2>
+
+            <p id="routeText"></p>
+
+            <button onclick="closeRoute()">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Campus Navigation System
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

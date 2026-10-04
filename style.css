@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+
+/* Header */
+
+header {
+    background: #243b55;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+
+/* Navigation */
+
+nav {
+    background: white;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+nav button {
+    margin: 5px;
+}
+
+
+/* Buttons */
+
+button {
+    background: #243b55;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #141e30;
+}
+
+
+/* Sections */
+
+.section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Search */
+
+.search-box {
+    margin: 25px 0;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+/* Categories */
+
+.categories {
+    margin-bottom: 25px;
+}
+
+.categories button {
+    margin: 5px;
+}
+
+
+/* Location Cards */
+
+.location-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.location-card {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ddd;
+}
+
+.location-card h3 {
+    color: #243b55;
+}
+
+.location-card p {
+    margin: 8px 0;
+}
+
+
+/* Quick List */
+
+.quick-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.quick-list button {
+    padding: 20px;
+    font-size: 16px;
+}
+
+
+/* Campus Map */
+
+.campus-map {
+    position: relative;
+    height: 550px;
+    background: #e7eef5;
+    border: 3px solid #243b55;
+    border-radius: 15px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+
+/* Map Locations */
+
+.map-location {
+    position: absolute;
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px #aaa;
+    text-align: center;
+    font-weight: bold;
+}
+
+.map-location small {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+
+/* Map positions */
+
+.gate {
+    top: 20px;
+    left: 40%;
+}
+
+.block-a {
+    top: 130px;
+    left: 15%;
+}
+
+.block-b {
+    top: 130px;
+    right: 15%;
+}
+
+.block-c {
+    top: 300px;
+    left: 40%;
+}
+
+.canteen {
+    top: 300px;
+    right: 10%;
+}
+
+.hostel {
+    bottom: 40px;
+    left: 15%;
+}
+
+.ground {
+    bottom: 40px;
+    right: 15%;
+}
+
+
+/* Map note */
+
+.map-note {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* About */
+
+.about-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ddd;
+}
+
+.about-box li {
+    margin: 10px 0;
+}
+
+
+/* Route popup */
+
+.route-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.route-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+}
+
+.route-content h2 {
+    color: #243b55;
+}
+
+#routeText {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* Footer */
+
+footer {
+    background: #243b55;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .location-container {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-list {
+        grid-template-columns: 1fr;
+    }
+
+    .campus-map {
+        height: 500px;
+    }
+
+    .map-location {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+}
